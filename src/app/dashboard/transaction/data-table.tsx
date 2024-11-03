@@ -6,7 +6,7 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
-  getPaginationRowModel,
+  // getPaginationRowModel,
   useReactTable,
   SortingState,
   getSortedRowModel,
@@ -26,7 +26,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { PaginationButton } from "@/components/pagination";
+// import { PaginationButton } from "@/components/pagination";
 // import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 //import { ScrollArea } from "@/components/ui/scroll-area"
@@ -49,7 +49,7 @@ export function DataTable<TData, TValue>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
     //sorting
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
@@ -67,7 +67,7 @@ export function DataTable<TData, TValue>({
       <div className="flex flex-row justify-between items-center">
         <div className="py-4">
           <Input
-            placeholder="Filter Stocks..."
+            placeholder="Filter products..."
             value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
               table.getColumn("name")?.setFilterValue(event.target.value)
@@ -78,7 +78,7 @@ export function DataTable<TData, TValue>({
 
         <div className="flex flex-row">
           <div className="mr-2">
-            <Button variant="secondary">+ Add Company </Button>
+            <Button variant="default">+ Add Product </Button>
           </div>
           <div>
             <Button variant="outline"># Export </Button>
@@ -139,7 +139,7 @@ export function DataTable<TData, TValue>({
       {/* </ScrollArea> */}
       </div>
 
-      <div className="flex items-center justify-end space-x-2 py-4">
+      {/* <div className="flex items-center justify-end space-x-2 py-4">
         <PaginationButton
           pageIndex={table.getState().pagination.pageIndex}
           pageCount={table.getPageCount()}
@@ -149,7 +149,7 @@ export function DataTable<TData, TValue>({
           nextPage={table.nextPage}
           setPageIndex={table.setPageIndex}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

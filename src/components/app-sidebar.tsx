@@ -1,17 +1,15 @@
 "use client";
 
 import {
-  Calendar,
   ChevronDown,
   ChevronRight,
   ChevronUp,
   Home,
-  Inbox,
-  //   Search,
-  //   Settings,
+  Coins,
   ChartPie,
   HandCoins,
-  Users,
+  ChartBarIcon,
+  ChartArea
 } from "lucide-react";
 
 import {
@@ -35,40 +33,75 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 // Menu items.
-const saham = [
+
+const dashboard = [
   {
     title: "Home",
     url: "/dashboard",
     icon: Home,
   },
+];
+
+
+const saham = [
   {
     title: "Stock IDX",
     url: "/dashboard/stockid",
-    icon: Inbox,
+    icon: ChartBarIcon,
   },
   {
     title: "Stock US",
     url: "/dashboard/stockus",
     icon: ChartPie,
   },
+  {
+    title: "Financials",
+    url: "/dashboard/transaction",
+    icon: HandCoins,
+  },
+  {
+    title: "Chart",
+    url: "#",
+    icon: ChartArea,
+  },
 ];
+
 const crypto = [
   {
     title: "Crypto",
     url: "/dashboard/crypto",
-    icon: Users,
+    icon: Coins,
   },
   {
     title: "Financials",
-    url: "#",
+    url: "/dashboard/transaction",
     icon: HandCoins,
   },
   {
-    title: "News",
-    url: "#",
-    icon: Calendar,
+    title: "Chart",
+    url: "/dashboard/crpchart",
+    icon: ChartArea,
   },
 ];
+
+const buy = [
+  {
+    title: "Buy US Stocks",
+    url: "/dashboard/buystockid",
+    icon: ChartBarIcon,
+  },
+  {
+    title: "Buy IDX Stocks",
+    url: "/dashboard/buystockid",
+    icon: ChartBarIcon,
+  },
+  {
+    title: "Buy Crypto",
+    url: "/dashboard/buycrypto",
+    icon: Coins,
+  },
+];
+
 
 export function AppSidebar() {
   const { state } = useSidebar();
@@ -82,7 +115,7 @@ export function AppSidebar() {
                 <SidebarMenuButton>
                   {state === "expanded" ? (
                     <>
-                      Select Workspace
+                      Select Portofolio
                       <ChevronDown className="ml-auto h-4 w-4" />
                     </>
                   ) : (
@@ -104,6 +137,29 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarContent>
+
+      <SidebarGroup>
+          <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {dashboard.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <Link
+                      href={item.url}
+                      passHref
+                      className="flex items-center gap-2 "
+                    >
+                      <item.icon className="h-5 w-5" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
         <SidebarGroup>
           <SidebarGroupLabel>Stocks</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -144,12 +200,11 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-
         <SidebarGroup>
-          <SidebarGroupLabel>Founder</SidebarGroupLabel>
+          <SidebarGroupLabel>Trade</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {/* {founder.map((item) => (
+              {buy.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url} className="flex items-center gap-2">
@@ -158,7 +213,7 @@ export function AppSidebar() {
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-              ))} */}
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

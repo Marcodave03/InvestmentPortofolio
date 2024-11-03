@@ -8,7 +8,7 @@ import { DataTable } from "./data-table";
 // Dummy data function
 async function getData(): Promise<Saham[]> {
   const apiKey = process.env.NEXT_US_STOCK_KEY;
-  const symbols = ["AAPL","IBM"];
+  const symbols = ["AAPL","IBM","NVDA","GOOGL"];
   const requests = symbols.map((symbol) => {
     return fetch(
       `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/2023-11-03/2023-11-03?apiKey=${apiKey}`
@@ -72,7 +72,7 @@ export default async function Saham() {
     <div>
       <div className="flex flex-row mb-2 space-x-2 justify-end"></div>
       <div className="border-2 rounded-lg p-2">
-      <h1 className="mb-4">United State Stock</h1>
+      <h1 className="ml-2">United State Stock</h1>
         <DataTable columns={columns} data={data} />
       </div>
     </div>

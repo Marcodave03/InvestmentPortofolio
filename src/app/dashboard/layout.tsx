@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </header>
-        <SidebarInset className="flex-1 overflow-auto w-full pt-10">
+        <SidebarInset className="flex-1 overflow-auto w-full pt-2">
           <main className="m-2 max-w-full">{children}</main>
         </SidebarInset>
       </div>

@@ -77,7 +77,7 @@ export default async function Saham() {
     <div>
       <div className="flex flex-row mb-2 space-x-2 justify-end"></div>
       <div className="border-2 rounded-lg p-2">
-        <h2 className="mb-4">Indonesian Stock</h2>
+        <h2 className="ML-2">Indonesian Stock</h2>
         <DataTable columns={columns} data={data} />
       </div>
     </div>

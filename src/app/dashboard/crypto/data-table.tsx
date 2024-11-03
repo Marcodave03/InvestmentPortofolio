@@ -65,9 +65,9 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex flex-row justify-between items-center">
-        <div className="py-4">
+        <div className="mb-2">
           <Input
-            placeholder="Filter products..."
+            placeholder="Filter Crypto..."
             value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
               table.getColumn("name")?.setFilterValue(event.target.value)
@@ -77,8 +77,8 @@ export function DataTable<TData, TValue>({
         </div>
 
         <div className="flex flex-row">
-          <div className="mr-2">
-            <Button variant="default">+ Add Product </Button>
+          <div className="mr-2 mb-2">
+            <Button variant="secondary">+ Add Crypto</Button>
           </div>
           <div>
             <Button variant="outline"># Export </Button>

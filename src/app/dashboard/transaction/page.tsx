@@ -82,9 +82,9 @@ export default async function Saham() {
   const data = await getData();
   return (
     <div>
-      <div className="flex flex-row space-x-2 justify-end"></div>
+      <div className="flex flex-row mb-2 space-x-2 justify-end"></div>
       <div className="border-2 rounded-lg p-2">
-        <h1 className="mb-4 ml-2">Cryptocurrency</h1>
+        <h1 className="mb-4">Cryptocurrency</h1>
         <DataTable columns={columns} data={data} />
       </div>
     </div>

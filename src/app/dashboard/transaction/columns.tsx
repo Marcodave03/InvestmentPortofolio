@@ -16,7 +16,7 @@ import { ArrowUpDown } from "lucide-react";
 
 import DeleteAlert from "@/components/deleteAlert";
 
-export type Saham = {
+export type Cryptoo = {
   id: string;
   category: string | null;
   name: string | null;
@@ -26,7 +26,7 @@ export type Saham = {
   margin: number | null;
 };
 
-export const columns: ColumnDef<Saham>[] = [
+export const columns: ColumnDef<Cryptoo>[] = [
   {
     accessorKey: "category",
     header: ({ column }) => {
@@ -53,7 +53,7 @@ export const columns: ColumnDef<Saham>[] = [
           size="sort"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Company
+          Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -127,7 +127,7 @@ export const columns: ColumnDef<Saham>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const saham = row.original;
+      const cryptoo = row.original;
 
       return (
         <DropdownMenu>
@@ -139,7 +139,7 @@ export const columns: ColumnDef<Saham>[] = [
 
           <DropdownMenuContent align="end">
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(saham.id)}
+              onClick={() => navigator.clipboard.writeText(cryptoo.id)}
             >
               Copy ID
             </DropdownMenuItem>
