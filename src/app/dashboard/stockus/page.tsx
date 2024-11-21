@@ -8,7 +8,7 @@ import { DataTable } from "./data-table";
 // Dummy data function
 async function getData(): Promise<Saham[]> {
   const apiKey = process.env.NEXT_US_STOCK_KEY;
-  const symbols = ["AAPL","IBM","NVDA","GOOGL"];
+  const symbols = ["AAPL","IBM","NVDA","GOOGL","BBRI.XIDX"];
   const requests = symbols.map((symbol) => {
     return fetch(
       `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/2023-11-03/2023-11-03?apiKey=${apiKey}`
